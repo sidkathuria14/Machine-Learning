@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('/home/sidkathuria14/Desktop/desktop/ML Code/Restaurant_Reviews.tsv', delimiter = '\t', quoting = 3)
+dataset = pd.read_csv('/home/sidkathuria14/Desktop/desktop/Machine-Learning/NLP/Restaurant_Reviews.tsv', delimiter = '\t', quoting = 3)
 
 # Cleaning the texts
 import re
@@ -37,8 +37,8 @@ y = dataset.iloc[:,1].values
 from sklearn.cross_validation import train_test_split
 x_train,x_test,y_train,y_test = train_test_split(x,y,train_size = 0.8,random_state = 42)
 from sklearn.naive_bayes import GaussianNB
-y_pred = classifier.predict(x_test)
 classifier = GaussianNB()
 classifier.fit(x_train,y_train)
+y_pred = classifier.predict(x_test)
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test,y_pred)
